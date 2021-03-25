@@ -1,5 +1,5 @@
 ## Co Author Menu 
-This plugin add a custom menu on the admin bar for the RainMaker platform since users don't have access to the admin sidebar menu
+This plugin adds a custom menu on the admin bar for the RainMaker platform since users don't have access to the admin sidebar menu
 
 ## Displaying on FrontEnd
 To display this on the frontend, you can use these two methods;
