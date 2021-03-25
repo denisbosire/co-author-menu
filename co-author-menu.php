@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Co-Author Menu
  * Plugin URI:        https://github.com/denisbosire
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Adds a custom menu on the admin bar for guest authors
  * Version:           1.0.0
  * Author:            Denis Bosire
  * Author URI:        https://github.com/denisbosire
@@ -41,10 +41,12 @@ define( 'CO_AUTHOR_MENU_VERSION', '1.0.0' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-co-author-menu-activator.php
  */
-function activate_co_author_menu() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-co-author-menu-activator.php';
-	Co_Author_Menu_Activator::activate();
-}
+
+
+	function activate_co_author_menu() {
+		require_once plugin_dir_path( __FILE__ ) . 'includes/class-co-author-menu-activator.php';
+		Co_Author_Menu_Activator::activate();
+	}
 
 /**
  * The code that runs during plugin deactivation.
@@ -79,4 +81,18 @@ function run_co_author_menu() {
 	$plugin->run();
 
 }
-run_co_author_menu();
+function check_if_co_author_exists(){
+	if( is_plugin_active( 'co-authors-plus/co-authors-plus.php' ) ) {
+		run_co_author_menu();
+	} else {
+		function co_author_admin_notice__error() {
+			$class = 'notice notice-error';
+			$message = __( 'This plugin requires Co Author Plus Installed & activated to work.', 'co-author-menu' );
+		
+			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
+		}
+		add_action( 'admin_notices', 'co_author_admin_notice__error' );
+	}
+}
+add_action( 'admin_init', 'check_if_co_author_exists' );
+
