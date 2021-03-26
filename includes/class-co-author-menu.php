@@ -110,7 +110,6 @@ class Co_Author_Menu {
 		 * core plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-co-author-menu-add-menu.php';
-
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
@@ -176,10 +175,9 @@ class Co_Author_Menu {
 		$author_menu = new Co_Author_Menu_Add_Menu( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_bar_menu',$author_menu, 'admin_bar_menu_item', 500 );
-		$this->loader->add_action( 'show_co_authors',$author_menu, 'co_author_menu_frontend', 500 );
-		
-
+		$this->loader->add_action( 'show_co_authors',$author_menu, 'co_author_menu_frontend', 500 );	
 	}
+
 	/**
 	 * Register all of the hooks related to the public-facing functionality
 	 * of the plugin.

@@ -65,7 +65,7 @@ register_deactivation_hook( __FILE__, 'deactivate_co_author_menu' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-co-author-menu.php';
-
+require plugin_dir_path( __FILE__ ) . 'show-authors.php';
 /**
  * Begins execution of the plugin.
  *
