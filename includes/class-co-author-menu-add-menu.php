@@ -75,7 +75,7 @@ class Co_Author_Menu_Add_Menu {
 			'id'    => 'menu-id',
 			'parent' => 'parent-menu-id',
 			'group'  => null,
-			'title' => __('Gues Authors', 'co-author-menu'), //you can use img tag with image link. it will show the image icon Instead of the title.
+			'title' => __('Guest Authors', 'co-author-menu'), //you can use img tag with image link. it will show the image icon Instead of the title.
 			'href'  => admin_url('users.php?page=view-guest-authors'),
 			'meta' => [
 				'title' => __( 'Menu Title', 'co-author-menu' ), //This title will show on hover
